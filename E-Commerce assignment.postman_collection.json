@@ -1,0 +1,642 @@
+{
+	"info": {
+		"_postman_id": "82cf894e-1a66-41bf-9d11-adc11f3fc05d",
+		"name": "E-Commerce assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14203197"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "create products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "mobile",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "this is A MObile",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "200000",
+									"type": "text"
+								},
+								{
+									"key": "Stock",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Url}}/admin/products/new",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"admin",
+								"products",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update product",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Laptop\",\r\n    \"description\": \"this is A name \",\r\n    \"price\": \"40960\",\r\n    \"category\": \"This is category\",\r\n    \"Stock\": 16\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}/admin/product/6599029e926feb4d04a7077b",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"admin",
+								"product",
+								"6599029e926feb4d04a7077b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Products",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{Url}}/admin/product/6599029e926feb4d04a7077b",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"admin",
+								"product",
+								"6599029e926feb4d04a7077b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductDetails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/product/65990315926feb4d04a70787",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"product",
+								"65990315926feb4d04a70787"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/products?keyword=laptop&page=0",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "laptop"
+								},
+								{
+									"key": "price[gt]",
+									"value": "69000",
+									"disabled": true
+								},
+								{
+									"key": "price[lte]",
+									"value": "70000",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creating Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\": \"5\",\r\n    \"comment\": \"Product One \",\r\n    \"productid\": \"65990384926feb4d04a70791\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}/review",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all revviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/reviews?id=65990384926feb4d04a70791",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"reviews"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "65990384926feb4d04a70791"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/delete/review?producdId=65990384926feb4d04a70791&reviewId=65991fc822ecd203811c9ba7",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"delete",
+								"review"
+							],
+							"query": [
+								{
+									"key": "producdId",
+									"value": "65990384926feb4d04a70791"
+								},
+								{
+									"key": "reviewId",
+									"value": "65991fc822ecd203811c9ba7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1eeabeb8-31d3-4de0-ac41-4332188d13b0"
+								},
+								{
+									"key": "username",
+									"value": "Robin Singhal",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "Robindfdfffffd@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Robin97!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Url}}/register",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"singrobin94@gmail.com\",\r\n    \"password\":\"Robin97!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}/login",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/logout",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forget password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"singrobin94@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}/forgetPassword",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"forgetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"RobinSingal\",\r\n    \"confirmPassword\":\"RobinSingal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}/password/reset/589f71f59f84f097b51e233a2e7155e393cca290",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"password",
+								"reset",
+								"589f71f59f84f097b51e233a2e7155e393cca290"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Role",
+			"item": [
+				{
+					"name": "getUserDetails",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}/userDetails",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"userDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProfile",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"Robin123@gmail.com\",\r\n    \"name\":\"Robin Singhal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}/updateProfile",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"updateProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\":\"Robin97!\",\r\n    \"newPassword\":\"Robin97!\",\r\n    \"confirmPassword\":\"Robin97!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}/updatePassword",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"updatePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create Admin",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/create/admin",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"create",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "create and new Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"shippingInfo\": {\r\n        \"address\": \"Adarsh nagar modinagae\",\r\n        \"city\": \"Modinagar\",\r\n        \"state\": \"UP\",\r\n        \"country\": \"India\",\r\n        \"pincode\": \"201204\",\r\n        \"phoneNumber\": \"9927193653\"\r\n    },\r\n    \"orderItems\": [\r\n        {\r\n            \"name\": \"laptop\",\r\n            \"price\": \"70000\",\r\n            \"quantity\": \"4\",\r\n            \"product\": \"65990384926feb4d04a70791\"\r\n        }\r\n    ],\r\n    \"itemsPrice\": 25000,\r\n    \"taxPrice\": 145,\r\n    \"shippingPrice\": 455,\r\n    \"totalPrice\": 245545\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}/order/new",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"order",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/me/orderDetails",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"me",
+								"orderDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin all orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/admin/all/orders?page=0",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"admin",
+								"all",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Order Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}/orderDetails/65991080532b479225b6b5de",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"orderDetails",
+								"65991080532b479225b6b5de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"Delivered\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}/admin/updateOrderStatus/65991a0b1f8dc004ebfa5408",
+							"host": [
+								"{{Url}}"
+							],
+							"path": [
+								"admin",
+								"updateOrderStatus",
+								"65991a0b1f8dc004ebfa5408"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Url",
+			"value": "localhost:8000/api/v1"
+		}
+	]
+}
